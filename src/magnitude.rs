@@ -9,6 +9,8 @@ macro_rules! impl_magnitude_generics {
             }
         }
 
+        // Operations with arrays
+
         impl std::ops::Mul for crate::array::Array<$x> {
             type Output = crate::array::Array<$x>;
         
@@ -16,6 +18,7 @@ macro_rules! impl_magnitude_generics {
                 let sz = usize::min(self.len(), rhs.len());
                 let mut v = Vec::new();
                 for i in 0..sz {
+                    // TODO: return poly
                     let m = self[i].val() * rhs[0].val();
                     v.push(<$x>::si(m))
                 }
@@ -58,6 +61,7 @@ macro_rules! impl_magnitude_generics {
                 let sz = usize::min(self.len(), rhs.len());
                 let mut v = Vec::new();
                 for i in 0..sz {
+                    // TODO: return poly
                     let m = self[i].val() / rhs[0].val();
                     v.push(<$x>::si(m))
                 }
@@ -177,9 +181,12 @@ macro_rules! impl_magnitude_generics {
             }
         }
 
+        // Operations with single magnitudes
+
         impl std::ops::Div for $x {
             type Output = $x;
         
+            // TODO: return Poly
             fn div(self, rhs: $x) -> Self::Output {
                 <$x>::si(self.val() / rhs.val())
             }
@@ -188,6 +195,7 @@ macro_rules! impl_magnitude_generics {
         impl std::ops::Mul for $x {
             type Output = $x;
         
+            // TODO: return Poly
             fn mul(self, rhs: $x) -> Self::Output {
                 <$x>::si(self.val() / rhs.val())
             }

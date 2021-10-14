@@ -1,11 +1,8 @@
-/// Units crate for science and engineery.
+/// Units crate for science and engineering.
 
 #[macro_use]
 mod magnitude;
 pub use magnitude::*;
-
-mod ops;
-pub use ops::*;
 
 mod time;
 pub use time::*;

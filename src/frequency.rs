@@ -1,5 +1,5 @@
-use std::f64::consts::PI;
-use crate::magnitude::*;
+use std::{ops::Div, f64::consts::PI};
+use crate::{magnitude::Magnitude, time::Time};
 
 /// Frequency magnitude, in hertz.
 pub struct Frequency(f64);
@@ -9,6 +9,16 @@ impl Magnitude for Frequency {
     fn val(&self) -> f64 { self.0 }
     fn units(&self) -> String { "Hz".to_owned() }
 }
+
+// The inverse of Frequency is Time.
+impl Div<Frequency> for i32 {
+    type Output = Time;
+
+    fn div(self, rhs: Frequency) -> Self::Output {
+        Time::si(self as f64 / rhs.val())
+    }
+}
+
 
 impl_magnitude_generics!(Frequency);
 

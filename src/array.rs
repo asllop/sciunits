@@ -1,5 +1,5 @@
 use std::ops::Deref;
-use crate::magnitude::*;
+use crate::magnitude::Magnitude;
 
 #[macro_export]
 macro_rules! array {
@@ -30,8 +30,7 @@ impl<M: std::fmt::Display + Magnitude> std::fmt::Display for Array<M> {
                 write!(f, " {} ,", x)?;
             }
         }
-        write!(f, "]")?;
-        Ok(())
+        write!(f, "]")
     }
 }
 
