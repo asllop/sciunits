@@ -1,6 +1,7 @@
 use std::ops::Div;
 use crate::{time::*, frequency::*, magnitude::*};
 
+/// The inverse of Time is Frequency.
 impl Div<Time> for f64 {
     type Output = Frequency;
 
@@ -9,6 +10,7 @@ impl Div<Time> for f64 {
     }
 }
 
+/// The inverse of Frequency is Time.
 impl Div<Frequency> for f64 {
     type Output = Time;
 

@@ -10,7 +10,7 @@ impl Magnitude for Frequency {
     fn units(&self) -> String { "Hz".to_owned() }
 }
 
-impl_mag_display!(Frequency);
+impl_magnitude_generics!(Frequency);
 
 impl Frequency {
     /// From radiants per second.

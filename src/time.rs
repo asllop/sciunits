@@ -9,4 +9,4 @@ impl Magnitude for Time {
     fn units(&self) -> String { "s".to_owned() }
 }
 
-impl_mag_display!(Time);
+impl_magnitude_generics!(Time);
