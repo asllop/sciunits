@@ -13,4 +13,8 @@ pub use time::*;
 mod frequency;
 pub use frequency::*;
 
-//TODO: Time, Distance, Speed, Acceleration, Mass, Force, Energy, Power, Frequency, Angle.
+#[macro_use]
+mod array;
+pub use array::*;
+
+//TODO: Time, Distance, Speed, Acceleration, Mass, Force, Energy, Power, Frequency, Angle, Temperature.

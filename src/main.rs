@@ -11,4 +11,11 @@ fn main() {
     println!("{}", Time::si(50.5) * Time::si(5.0));
 
     println!("{}", Frequency::from_rads(-15.0) + Frequency::si(1.0));
+
+    let a = array!(Time::si(1.0), Time::si(2.0), Time::si(3.0), Time::si(4.0));
+    let b = vec!(2.0, 2.0, 2.0, 2.0);
+    let c = a * b;
+    println!("{}", c);
+    let a = array!(Time::si(1.0), Time::si(2.0), Time::si(3.0), Time::si(4.0));
+    println!("{}", a / 5.0);
 }
