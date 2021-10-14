@@ -43,7 +43,10 @@ macro_rules! impl_magnitude_generics {
     };
 }
 
-pub trait Magnitude {
+use std::ops::{Add, Sub, Mul, Div};
+
+/// Trait to define types that contain magnitudes of specified units.
+pub trait Magnitude : Add + Sub + Mul + Div + Sized {
     /// Build a new magnitude using SI units.
     fn si(val: f64) -> Self where Self: Sized;
     /// Return magnitude in SI units.

@@ -5,7 +5,7 @@ use crate::magnitude::*;
 pub struct Frequency(f64);
 
 impl Magnitude for Frequency {
-    fn si(val: f64) -> Self { Frequency(val) }
+    fn si(val: f64) -> Self { if val < 0f64 { Frequency(f64::NAN) } else { Frequency(val) } }
     fn val(&self) -> f64 { self.0 }
     fn units(&self) -> String { "Hz".to_owned() }
 }
