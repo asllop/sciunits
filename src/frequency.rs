@@ -19,6 +19,7 @@ impl Div<Frequency> for i32 {
     }
 }
 
+//TODO: array inverse
 
 impl_magnitude_generics!(Frequency);
 

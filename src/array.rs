@@ -19,7 +19,7 @@ impl<M: Magnitude> Array<M> {
     }
 }
 
-impl<M: std::fmt::Display + Magnitude> std::fmt::Display for Array<M> {
+impl<M: Magnitude> std::fmt::Display for Array<M> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "[")?;
         for (i, x) in self.iter().enumerate() {
