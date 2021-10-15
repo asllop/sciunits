@@ -11,6 +11,7 @@ macro_rules! array {
 }
 
 /// Array of magnitudes.
+#[derive(Clone)]
 pub struct Array<M: Magnitude>(Vec<M>);
 
 impl<M: Magnitude> Array<M> {

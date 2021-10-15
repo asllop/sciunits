@@ -1,7 +1,8 @@
 use std::ops::Div;
-use crate::{magnitude::Magnitude, frequency::Frequency};
+use crate::{magnitude::Magnitude, frequency::Frequency, array::Array};
 
 /// Time magnitude, in seconds.
+#[derive(Clone)]
 pub struct Time(f64);
 
 impl Magnitude for Time {
@@ -19,7 +20,19 @@ impl Div<Time> for i32 {
     }
 }
 
-//TODO: array inverse
+/// The inverse of Time array is a Frequency array.
+impl Div<Array<Time>> for i32 {
+    type Output = Array<Frequency>;
+
+    fn div(self, rhs: Array<Time>) -> Self::Output {
+        let mut v = Vec::new();
+        for m in rhs.iter() {
+            let m = self as f64 / m.val();
+            v.push(Frequency::si(m));
+        }
+        crate::array::Array::new(v)
+    }
+}
 
 impl_magnitude_generics!(Time);
 
